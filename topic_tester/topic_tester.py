@@ -47,8 +47,12 @@ class TopicTester(Node):
     def clock_timer_callback(self):
         if self.board.turn == chess.WHITE:
             self.time.white_time_left -= 100
+            if self.time.white_time_left < 1000:
+                self.time.white_time_left = 1000
         else:
             self.time.black_time_left -= 100
+            if self.time.black_time_left < 1000:
+                self.time.black_time_left = 1000
         self.time_pub.publish(self.time)
 
     def publish_all(self):
