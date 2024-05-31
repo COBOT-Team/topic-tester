@@ -56,7 +56,7 @@ class TopicTester(Node):
         self.time_pub.publish(self.time)
 
     def publish_all(self):
-        self.game_state_pub.publish(FullFEN(fen=self.board.fen()))
+        # self.game_state_pub.publish(FullFEN(fen=self.board.fen()))
         self.game_config_pub.publish(self.game_config)
         # self.time_pub.publish(self.time)
         self.cobot0_enabled_pub.publish(CobotEnabled(enabled=self.cobot0_enabled))
@@ -85,7 +85,7 @@ class TopicTester(Node):
                 else:
                     self.time.black_time_left += self.game_config.time_increment
                 self.board.push(move)
-                self.game_state_pub.publish(FullFEN(fen=self.board.fen()))
+                # self.game_state_pub.publish(FullFEN(fen=self.board.fen()))
             else:
                 print("Invalid move.")
         elif set_match:
